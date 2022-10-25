@@ -2,6 +2,10 @@ GET http://localhost:3003/api/users
 
 ###
 
+DELETE http://localhost:3003/api/users/6355e8e9cae2f67cf22dd5b8
+
+###
+
 POST http://localhost:3003/api/users
 Content-Type: application/json
 

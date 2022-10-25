@@ -43,8 +43,13 @@ usersRouter.post("/", async (req, res) => {
 });
 
 usersRouter.get("/", async (req, res) => {
-  const users = await User.find({});
+  const users = await User.find({}).populate("blogs", { user: 0 });
   res.json(users);
+});
+
+usersRouter.delete("/:id", async (req, res) => {
+  await User.findByIdAndRemove(req.params.id);
+  res.status(204).end();
 });
 
 module.exports = usersRouter;
