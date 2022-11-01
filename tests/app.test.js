@@ -138,6 +138,7 @@ describe("operation with one blog", () => {
 
     const res = await api
       .put(`/api/blogs/${blogToUpdate.id}`)
+      .set("Authorization", `bearer ${token}`)
       .send(blogToUpdate)
       .expect(200)
       .expect("Content-Type", /application\/json/);

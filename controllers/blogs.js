@@ -13,7 +13,7 @@ blogsRouter.post("/", async (req, res) => {
 
   const blog = new Blog({
     title: body.title,
-    author: user.name,
+    author: body.author,
     url: body.url,
     likes: body.likes,
     user: user._id,
@@ -55,10 +55,15 @@ blogsRouter.delete("/:id", async (req, res) => {
 });
 
 blogsRouter.put("/:id", async (req, res) => {
-  const { title, author, url, likes } = req.body;
+  const { likes } = req.body;
+  const user = req.user;
+  if (!user) {
+    return res.status(401).json({ error: "invalid user credentials" });
+  }
+
   const updatedBlog = await Blog.findByIdAndUpdate(
     req.params.id,
-    { title, author, url, likes },
+    { likes },
     { new: true, runValidators: true, context: "query" }
   );
   res.status(200).json(updatedBlog);

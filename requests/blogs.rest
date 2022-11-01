@@ -9,13 +9,21 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhd
 
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhdm9ya28iLCJpZCI6IjYzNDljYjdjOTIzZTQzMWFmMmNmODFiMyIsImlhdCI6MTY2NjA1Mjk2OH0.NlDmuzxkuPc_z6KChFDDtGee3yRuWLN9AZkQ0XV4Xo8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhdm9ya28iLCJpZCI6IjYzNTVlYjliNjAyZjEyZjBhNGUzZDRkMiIsImlhdCI6MTY2NjkwODM0MiwiZXhwIjoxNjY2OTExOTQyfQ.-1Uk7X0v06kSTvIA56irnH_tmv00gejLOMajHqfMFgo
 
 {
-    "title": "2Blog2 Title",
+    "title": "5Blog2 5Title",
     "author": "Author name",
     "url": "www.blogtitle.com",
     "likes": 0,
-    "userId": "6349cb7c923e431af2cf81b3"
+    "userId": "6355eb9b602f12f0a4e3d4d2"
 }
 ###
+
+PUT http://localhost:3003/api/blogs/634f3a6b55f9845c9767aeca
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhdm9ya28iLCJpZCI6IjYzNTVlYjliNjAyZjEyZjBhNGUzZDRkMiIsImlhdCI6MTY2NzI3MjczOSwiZXhwIjoxNjY3Mjc2MzM5fQ.grQ1acA7HHq_3mw79HG_GfOnrG1U0Zj2HbOEl3ZFzLk
+
+{
+    "likes": 5  
+}
