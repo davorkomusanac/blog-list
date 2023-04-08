@@ -2,6 +2,7 @@ const blogsRouter = require("express").Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 blogsRouter.post("/", async (req, res) => {
   const body = req.body;
@@ -29,6 +30,22 @@ blogsRouter.post("/", async (req, res) => {
 blogsRouter.get("/", async (req, res) => {
   const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 });
   res.json(blogs);
+});
+
+blogsRouter.get("/:id", async (req, res) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({ error: "invalid blog id" });
+  }
+
+  const blog = await Blog.findById(req.params.id).populate("user", {
+    username: 1,
+    name: 1,
+  });
+
+  if (!blog) {
+    return res.status(400).json({ error: "invalid blog id" });
+  }
+  res.json(blog);
 });
 
 blogsRouter.delete("/:id", async (req, res) => {
