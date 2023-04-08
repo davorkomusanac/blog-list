@@ -2,6 +2,10 @@ GET http://localhost:3003/api/users
 
 ###
 
+GET http://localhost:3003/api/users/6355eb9b602f12f0a4e3d4d2
+
+###
+
 DELETE http://localhost:3003/api/users/6355e8e9cae2f67cf22dd5b8
 
 ###
@@ -12,6 +16,16 @@ Content-Type: application/json
 {
     "username": "Davorko",
     "name": "Davor Komusanac",
+    "password": "lozinka555"
+}
+###
+
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "Ivanko",
+    "name": "Ivan Komusanac",
     "password": "lozinka555"
 }
 ###
