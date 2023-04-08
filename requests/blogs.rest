@@ -27,3 +27,14 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhd
 {
     "likes": 5  
 }
+
+###
+
+POST http://localhost:3003/api/blogs/636671b0b4e9da685ae7b60a/comments
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkRhdm9ya28iLCJpZCI6IjYzNTVlYjliNjAyZjEyZjBhNGUzZDRkMiIsImlhdCI6MTY4MDk2NTk3MywiZXhwIjoxNjgwOTY5NTczfQ.q4iYZW_3TEnnK5YVegp6r5ClUy79KhxomuY50lGT7Gg
+
+{
+    "comment": "This is another comment"
+}
+###

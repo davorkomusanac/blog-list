@@ -86,4 +86,23 @@ blogsRouter.put("/:id", async (req, res) => {
   res.status(200).json(updatedBlog);
 });
 
+blogsRouter.post("/:id/comments", async (req, res) => {
+  const { comment } = req.body;
+  const user = req.user;
+
+  if (!user) {
+    return res.status(401).json({ error: "invalid user credentials" });
+  }
+
+  const updatedBlog = await Blog.findByIdAndUpdate(
+    req.params.id,
+    {
+      $push: { comments: comment },
+    },
+    { new: true, runValidators: true, context: "query" }
+  );
+
+  res.status(200).json(updatedBlog);
+});
+
 module.exports = blogsRouter;
